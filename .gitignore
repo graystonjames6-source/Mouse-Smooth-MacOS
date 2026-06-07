@@ -8,6 +8,11 @@ DerivedData/
 *.xcuserstate
 xcuserdata/
 
+# Release artifacts (DMG, archives) — distributed via GitHub Releases, not the repo
+dist/
+*.dmg
+*.zip
+
 # Swift Package Manager
 .build/
 .swiftpm/

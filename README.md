@@ -9,6 +9,37 @@ trackpad and your external mouse? Mouse Smooth fixes that.
 > **Status: v1 feature-complete.** All seven listed features work. Remaining
 > work is polish (app icon, CONTRIBUTING.md, signed release builds).
 
+## Download
+
+**[⬇ Download the latest release](https://github.com/graystonjames6-source/Mouse-Smooth-MacOS/releases/latest)**
+
+1. Download `MouseSmooth-vX.Y.Z.dmg` from the release page.
+2. Open the DMG and drag **Mouse Smooth** into your **Applications** folder.
+3. First launch: macOS will refuse with *"Mouse Smooth cannot be opened
+   because the developer cannot be verified."* This is expected — see below.
+
+### Allowing the app past Gatekeeper
+
+This release is **ad-hoc signed, not notarized**. We don't have an Apple
+Developer ID Application certificate ($99/yr), so Gatekeeper flags the app
+on first run. The code itself is identical to what's in this repo; there is
+no malware risk above what you accept by trusting this repo.
+
+Pick whichever of these your macOS version supports:
+
+- **macOS 14 Sonoma and earlier** — Right-click `Mouse Smooth.app` in
+  Applications → **Open** → confirm in the dialog. Only needed once.
+- **macOS 15 Sequoia and later** — Try to open the app once (it'll be
+  blocked), then go to **System Settings → Privacy & Security**, scroll to
+  the bottom, and click **Open Anyway** next to "Mouse Smooth was blocked".
+- **Power-user shortcut** (any macOS version) — remove the quarantine
+  attribute in Terminal:
+  ```sh
+  xattr -dr com.apple.quarantine "/Applications/Mouse Smooth.app"
+  ```
+
+Once opened the first time, macOS remembers and won't block subsequent launches.
+
 ## v1 features
 
 - [x] Reverse scroll direction for the **external mouse only**
