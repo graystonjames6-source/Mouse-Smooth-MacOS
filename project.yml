@@ -8,8 +8,8 @@ options:
 settings:
   base:
     SWIFT_VERSION: "5.9"
-    MARKETING_VERSION: "0.1.2"
-    CURRENT_PROJECT_VERSION: "3"
+    MARKETING_VERSION: "0.1.3"
+    CURRENT_PROJECT_VERSION: "4"
     CODE_SIGN_STYLE: Automatic
     ENABLE_HARDENED_RUNTIME: YES
     # We intentionally do NOT enable App Sandbox.
@@ -34,14 +34,20 @@ targets:
         CFBundleIconFile: AppIcon
         # XcodeGen's default Info.plist sets these to 1.0/1. We override
         # them so the bundle version matches MARKETING_VERSION above.
-        CFBundleShortVersionString: "0.1.2"
-        CFBundleVersion: "3"
+        CFBundleShortVersionString: "0.1.3"
+        CFBundleVersion: "4"
         NSHumanReadableCopyright: "Copyright © 2026 Mouse Smooth contributors. MIT License."
         NSAccessibilityUsageDescription: "Mouse Smooth needs Accessibility access to observe and modify scroll events from your external mouse."
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.mousesmooth.MouseSmooth
-        PRODUCT_NAME: MouseSmooth
+        # PRODUCT_NAME controls the .app filename on disk. Using the same
+        # string as CFBundleDisplayName so Finder display = path = no
+        # surprise in Terminal commands. Spaces are fine here — Apple's
+        # own apps ("System Settings.app", "Photo Booth.app") do this.
+        # Target name stays "MouseSmooth" (no space) so the Xcode scheme
+        # name doesn't grow a space.
+        PRODUCT_NAME: "Mouse Smooth"
         # The XcodeGen info: block above generates the Info.plist; we must
         # disable Xcode's own auto-generation so the two don't collide.
         GENERATE_INFOPLIST_FILE: NO

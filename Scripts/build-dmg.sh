@@ -25,7 +25,7 @@ if [[ -z "${VERSION}" ]]; then
   exit 1
 fi
 
-APP="build/Build/Products/Release/MouseSmooth.app"
+APP="build/Build/Products/Release/Mouse Smooth.app"
 DMG="dist/MouseSmooth-v${VERSION}.dmg"
 
 mkdir -p dist
@@ -62,7 +62,7 @@ create-dmg \
   --volname "Mouse Smooth" \
   --window-size 540 380 \
   --icon-size 128 \
-  --icon "MouseSmooth.app" 140 190 \
+  --icon "Mouse Smooth.app" 140 190 \
   --app-drop-link 400 190 \
   --no-internet-enable \
   "$DMG" \
