@@ -15,6 +15,8 @@ trackpad and your external mouse? Mouse Smooth fixes that.
 
 1. Download `MouseSmooth-vX.Y.Z.dmg` from the release page.
 2. Open the DMG and drag **Mouse Smooth** into your **Applications** folder.
+   (Finder displays it as "Mouse Smooth" but the file on disk is
+   `MouseSmooth.app` — no space. That distinction matters in Terminal.)
 3. First launch: macOS will refuse with *"Mouse Smooth cannot be opened
    because the developer cannot be verified."* This is expected — see below.
 
@@ -27,7 +29,7 @@ risk above what you accept by trusting this repo.
 **Recommended fix (works on every macOS version):**
 
 ```sh
-xattr -dr com.apple.quarantine "/Applications/Mouse Smooth.app"
+xattr -dr com.apple.quarantine "/Applications/MouseSmooth.app"
 ```
 
 Then open the app normally. That's it.
