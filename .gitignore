@@ -1,0 +1,21 @@
+# XcodeGen output — regenerate with `xcodegen generate`
+*.xcodeproj/
+*.xcworkspace/
+
+# Xcode build artifacts
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+
+# macOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/

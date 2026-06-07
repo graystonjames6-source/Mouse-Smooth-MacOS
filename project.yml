@@ -1,0 +1,35 @@
+name: MouseSmooth
+options:
+  bundleIdPrefix: com.mousesmooth
+  deploymentTarget:
+    macOS: "13.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_HARDENED_RUNTIME: YES
+    # We intentionally do NOT enable App Sandbox.
+    # Reversing scroll for the mouse only requires a CGEventTap,
+    # which is incompatible with the sandbox. See README for details.
+
+targets:
+  MouseSmooth:
+    type: application
+    platform: macOS
+    sources:
+      - path: Sources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.mousesmooth.MouseSmooth
+        PRODUCT_NAME: MouseSmooth
+        GENERATE_INFOPLIST_FILE: YES
+        # LSUIElement = menu bar only app, no Dock icon, no main menu.
+        INFOPLIST_KEY_LSUIElement: YES
+        INFOPLIST_KEY_CFBundleDisplayName: "Mouse Smooth"
+        INFOPLIST_KEY_NSHumanReadableCopyright: "Copyright © 2026 Mouse Smooth contributors. MIT License."
+        # Friendly description shown in the Accessibility prompt.
+        INFOPLIST_KEY_NSAccessibilityUsageDescription: "Mouse Smooth needs Accessibility access to observe and modify scroll events from your external mouse."
