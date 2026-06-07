@@ -1,6 +1,7 @@
 # XcodeGen output — regenerate with `xcodegen generate`
 *.xcodeproj/
 *.xcworkspace/
+Resources/Info.plist
 
 # Xcode build artifacts
 build/
