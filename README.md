@@ -20,23 +20,29 @@ trackpad and your external mouse? Mouse Smooth fixes that.
 
 ### Allowing the app past Gatekeeper
 
-This release is **ad-hoc signed, not notarized**. We don't have an Apple
-Developer ID Application certificate ($99/yr), so Gatekeeper flags the app
-on first run. The code itself is identical to what's in this repo; there is
-no malware risk above what you accept by trusting this repo.
+This release is **ad-hoc signed, not notarized** (no $99/yr Apple Developer
+ID). The code is identical to what's in this repo — there's no malware
+risk above what you accept by trusting this repo.
 
-Pick whichever of these your macOS version supports:
+**Recommended fix (works on every macOS version):**
 
-- **macOS 14 Sonoma and earlier** — Right-click `Mouse Smooth.app` in
-  Applications → **Open** → confirm in the dialog. Only needed once.
-- **macOS 15 Sequoia and later** — Try to open the app once (it'll be
-  blocked), then go to **System Settings → Privacy & Security**, scroll to
-  the bottom, and click **Open Anyway** next to "Mouse Smooth was blocked".
-- **Power-user shortcut** (any macOS version) — remove the quarantine
-  attribute in Terminal:
-  ```sh
-  xattr -dr com.apple.quarantine "/Applications/Mouse Smooth.app"
-  ```
+```sh
+xattr -dr com.apple.quarantine "/Applications/Mouse Smooth.app"
+```
+
+Then open the app normally. That's it.
+
+> Why this is the recommended path: on macOS Sonoma / Sequoia, ad-hoc signed
+> apps downloaded from the internet sometimes get rejected with
+> *"Mouse Smooth is damaged and can't be opened"* — a misleading message;
+> the binary is fine, but Gatekeeper refuses to validate it. The `xattr`
+> command removes the "downloaded from the internet" tag and Gatekeeper
+> stops caring.
+
+**Alternative (right-click → Open):** on macOS 14 and earlier, right-click
+`Mouse Smooth.app` → **Open** → confirm in the dialog. On macOS 15+ this
+path sometimes works, sometimes is replaced by **System Settings → Privacy
+& Security → Open Anyway**.
 
 Once opened the first time, macOS remembers and won't block subsequent launches.
 
